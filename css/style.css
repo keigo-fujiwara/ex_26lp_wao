@@ -54,6 +54,13 @@ body {
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > * {
+    width: 100%;
 }
 
 /* ============================================
@@ -338,6 +345,7 @@ body {
     display: inline-block;
     cursor: pointer;
     border: 2px solid transparent;
+    text-align: center;
 }
 
 .btn-gold {
@@ -586,6 +594,9 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-normal);
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .business-card:hover {
@@ -724,6 +735,9 @@ body {
 
 .load-more {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ============================================
@@ -769,6 +783,10 @@ body {
     color: var(--black);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .campaign-card:hover {
@@ -788,6 +806,8 @@ body {
 .campaign-benefits {
     list-style: none;
     margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
 }
 
 .campaign-benefits li {
@@ -805,6 +825,7 @@ body {
     border-radius: 25px;
     font-weight: 700;
     transition: all var(--transition-fast);
+    margin-top: auto;
 }
 
 .campaign-detail-btn:hover {
@@ -836,6 +857,10 @@ body {
 
 .campaign-cta {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .countdown {
@@ -878,6 +903,9 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-normal);
     border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .innovation-card.large {
@@ -1046,6 +1074,9 @@ body {
     color: var(--white);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .vision-card.full-width {
@@ -1183,6 +1214,7 @@ body {
 .event-actions {
     display: flex;
     gap: 15px;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -1226,6 +1258,11 @@ body {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .event-special h3 {
@@ -1233,14 +1270,17 @@ body {
     font-weight: 900;
     color: var(--primary-blue);
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .event-special ul {
     list-style: none;
     font-size: 18px;
     margin-bottom: 30px;
-    text-align: left;
+    text-align: center;
     max-width: 600px;
+    width: 100%;
+    padding: 0;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1248,14 +1288,19 @@ body {
 .event-special li {
     padding: 10px 0;
     color: var(--black);
+    text-align: center;
+    width: 100%;
+    list-style-position: inside;
 }
 
 .event-special-cta {
     display: flex;
-    gap: 20px;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 20px;
     margin-top: 30px;
+    width: 100%;
 }
 
 /* ============================================
@@ -1266,6 +1311,12 @@ body {
     background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-amber) 100%);
     color: var(--white);
     text-align: center;
+}
+
+.cta-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cta-section .section-title {
@@ -1286,6 +1337,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
     margin: 60px 0;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .cta-card {
@@ -1318,6 +1371,7 @@ body {
     margin: 40px 0;
     font-size: 18px;
     line-height: 2;
+    text-align: center;
 }
 
 .contact-phone,
@@ -1327,6 +1381,7 @@ body {
 
 .cta-countdown {
     margin: 40px 0;
+    text-align: center;
 }
 
 .countdown-large {
@@ -1334,6 +1389,10 @@ body {
     font-weight: 900;
     margin-top: 20px;
     font-family: var(--font-en);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .countdown-large span {
@@ -1347,6 +1406,10 @@ body {
     font-size: 20px;
     font-weight: 700;
     margin-top: 40px;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ============================================

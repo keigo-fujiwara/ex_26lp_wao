@@ -1,0 +1,539 @@
+/* ============================================
+   WAOコーポレーション 50周年記念 全国縦断 昭和の名曲ショー
+   CSS Stylesheet - 深みのあるワインレッドとゴールドの上品なデザイン
+   ============================================ */
+
+/* 手書き風フォント */
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Mochiy+Pop+One&family=Yomogi&display=swap');
+
+:root {
+    --wine-red: #6B2C3D;        /* 深みのあるワインレッド */
+    --wine-red-dark: #4A1E2A;   /* 濃いワインレッド */
+    --wine-red-light: #8B4A5A;  /* 薄いワインレッド */
+    --wine-red-accent: #722F37;  /* アクセント用ワインレッド */
+    --elegant-gold: #D4AF37;     /* 上品なゴールド */
+    --elegant-gold-light: #F4D03F; /* 明るいゴールド */
+    --elegant-gold-dark: #B8860B;  /* 濃いゴールド */
+    --cream: #F5F1E8;            /* クリーム色 */
+    --stage-dark: #2C1810;      /* ステージの暗い色 */
+}
+
+body {
+    font-family: 'Kosugi Maru', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #2C1810 0%, #4A1E2A 50%, #6B2C3D 100%);
+    background-attachment: fixed;
+    color: #E8E0D6;
+    position: relative;
+}
+
+/* ステージの幕のようなドレープ効果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at top right, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(107, 44, 61, 0.1) 2px,
+            rgba(107, 44, 61, 0.1) 4px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ヒーローエリア: スポットライト効果 */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #2C1810 0%, #4A1E2A 30%, #6B2C3D 60%, #8B4A5A 100%);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+/* スポットライトの光をイメージさせるグラデーション */
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.2) 30%, transparent 70%);
+    animation: spotlight 8s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes spotlight {
+    0%, 100% { 
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateX(-50%) translateY(-10%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ステージの幕のようなドレープ */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(180deg, rgba(44, 24, 16, 0.8) 0%, transparent 100%);
+    z-index: 3;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 24, 16, 0.7) 0%, rgba(74, 30, 42, 0.6) 50%, rgba(107, 44, 61, 0.7) 100%);
+    z-index: 4;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    padding: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content h1 {
+    font-family: 'Mochiy Pop One', sans-serif;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.5);
+    position: relative;
+    color: var(--elegant-gold-light);
+}
+
+/* 上品な音符の装飾 */
+.hero-content h1::before,
+.hero-content h1::after {
+    content: '♪';
+    font-size: 2rem;
+    color: var(--elegant-gold);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.hero-content h1::before {
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.hero-content h1::after {
+    right: -50px;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(-50%) translateY(0); }
+    50% { transform: translateY(-50%) translateY(-10px); }
+}
+
+/* 画像プレースホルダー - 上品なデザイン */
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, #4A1E2A 0%, #6B2C3D 100%);
+    border: 3px solid var(--elegant-gold);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--elegant-gold-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--elegant-gold);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* タブボタン - 上品なデザイン */
+.tab-button.active {
+    background: linear-gradient(135deg, var(--wine-red) 0%, var(--wine-red-dark) 100%);
+    color: var(--elegant-gold-light);
+    border: 2px solid var(--elegant-gold);
+    box-shadow: 0 4px 12px -2px rgba(107, 44, 61, 0.6), 0 0 15px rgba(212, 175, 55, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    font-family: 'Mochiy Pop One', sans-serif;
+    position: relative;
+}
+
+.tab-button.active::before {
+    content: '★';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    color: var(--elegant-gold);
+    font-size: 1.2rem;
+    animation: sparkle 2s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.tab-button {
+    background-color: rgba(107, 44, 61, 0.3);
+    color: var(--elegant-gold-light);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Kosugi Maru', sans-serif;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.tab-button:hover {
+    background: linear-gradient(135deg, rgba(107, 44, 61, 0.6) 0%, rgba(74, 30, 42, 0.6) 100%);
+    border-color: var(--elegant-gold);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 16px -3px rgba(107, 44, 61, 0.5), 0 0 10px rgba(212, 175, 55, 0.3);
+    color: var(--elegant-gold-light);
+}
+
+/* CTAボタン - 上品なゴールド */
+.cta-button {
+    background: linear-gradient(135deg, var(--elegant-gold-dark) 0%, var(--elegant-gold) 50%, var(--elegant-gold-light) 100%);
+    color: var(--wine-red-dark);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px -4px rgba(212, 175, 55, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    font-family: 'Mochiy Pop One', sans-serif;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    border: 2px solid var(--elegant-gold-light);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, var(--elegant-gold) 0%, var(--elegant-gold-light) 50%, var(--elegant-gold) 100%);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 0 8px 24px -4px rgba(212, 175, 55, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+/* アーティスト紹介カード - 上品なデザイン */
+.artist-visual-card {
+    background: linear-gradient(135deg, rgba(107, 44, 61, 0.2) 0%, rgba(74, 30, 42, 0.2) 100%);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px -3px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.artist-visual-card::before {
+    content: '♪';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--elegant-gold);
+    opacity: 0.5;
+    z-index: 10;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+}
+
+.artist-visual-card:hover {
+    box-shadow: 0 12px 32px -6px rgba(107, 44, 61, 0.6), 0 0 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-8px);
+    border-color: var(--elegant-gold);
+}
+
+.artist-image-placeholder {
+    width: 100%;
+    height: 350px;
+    background: linear-gradient(135deg, #4A1E2A 0%, #6B2C3D 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--elegant-gold-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-bottom: 3px solid var(--elegant-gold);
+    position: relative;
+}
+
+.artist-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+}
+
+/* アコーディオンのスタイル */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.accordion-content.open {
+    max-height: 500px; 
+    transition: max-height 0.5s ease-in;
+}
+
+.accordion-toggle {
+    font-family: 'Kosugi Maru', sans-serif;
+    background: rgba(107, 44, 61, 0.2);
+    color: var(--elegant-gold-light);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.accordion-toggle:hover {
+    background: rgba(107, 44, 61, 0.4);
+    border-color: var(--elegant-gold);
+}
+
+.accordion-toggle span {
+    transition: transform 0.3s ease;
+    color: var(--elegant-gold);
+}
+
+.accordion-content.open + .accordion-toggle span,
+.accordion-toggle:has(+ .accordion-content.open) span {
+    transform: rotate(45deg);
+}
+
+/* スケジュールカードのスタイル - 上品なデザイン */
+.schedule-card-date {
+    background: linear-gradient(135deg, var(--wine-red) 0%, var(--wine-red-dark) 100%);
+    position: relative;
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.schedule-card-date::before {
+    content: '🎵';
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.6));
+}
+
+/* セクションタイトルのスタイル - 上品なデザイン */
+section h2 {
+    position: relative;
+    padding-bottom: 1.5rem;
+    font-family: 'Mochiy Pop One', sans-serif;
+    color: var(--elegant-gold-light);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+section h2::before {
+    content: '♪';
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--elegant-gold);
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+section h2::after {
+    content: '♪';
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--elegant-gold);
+    animation: float 3s ease-in-out infinite 1.5s;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+section h2 {
+    border-bottom: 3px solid var(--elegant-gold);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-image: linear-gradient(90deg, transparent, var(--elegant-gold), transparent) 1;
+}
+
+/* ヘッダーのスタイル */
+header {
+    background: linear-gradient(135deg, rgba(44, 24, 16, 0.95) 0%, rgba(107, 44, 61, 0.95) 100%);
+    border-bottom: 2px solid var(--elegant-gold);
+    backdrop-filter: blur(10px);
+}
+
+header a {
+    font-family: 'Kosugi Maru', sans-serif;
+    color: var(--elegant-gold-light);
+}
+
+header a:hover {
+    color: var(--elegant-gold);
+}
+
+/* テーブルのスタイル */
+table th {
+    background: linear-gradient(135deg, var(--wine-red) 0%, var(--wine-red-dark) 100%);
+    font-family: 'Kosugi Maru', sans-serif;
+    color: var(--elegant-gold-light);
+    border: 1px solid var(--elegant-gold);
+}
+
+table td {
+    font-family: 'Kosugi Maru', sans-serif;
+    background: rgba(107, 44, 61, 0.2);
+    color: var(--elegant-gold-light);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* フッターのスタイル */
+footer {
+    background: linear-gradient(135deg, #1A0F0A 0%, #2C1810 100%);
+    border-top: 2px solid var(--elegant-gold);
+}
+
+/* セクション背景 */
+section.bg-white {
+    background: linear-gradient(135deg, rgba(44, 24, 16, 0.8) 0%, rgba(74, 30, 42, 0.8) 100%) !important;
+    color: var(--elegant-gold-light);
+}
+
+section.bg-gray-50 {
+    background: linear-gradient(135deg, rgba(74, 30, 42, 0.6) 0%, rgba(107, 44, 61, 0.6) 100%) !important;
+    color: var(--elegant-gold-light);
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 400px;
+        height: 60vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content h1::before,
+    .hero-content h1::after {
+        display: none;
+    }
+    
+    section h2::before,
+    section h2::after {
+        display: none;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h1,
+.hero-content p {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* 音符の装飾クラス */
+.music-note {
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    color: var(--elegant-gold);
+    font-size: 1.5rem;
+    margin: 0 5px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+/* 星の装飾クラス */
+.star-decoration {
+    display: inline-block;
+    color: var(--elegant-gold);
+    animation: sparkle 2s ease-in-out infinite;
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+}

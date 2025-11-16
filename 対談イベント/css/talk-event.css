@@ -72,6 +72,11 @@ nav a {
 }
 
 /* Button Hover Effects */
+a.bg-yellow-500 {
+    display: inline-block;
+    text-align: center;
+}
+
 a.bg-yellow-500:hover {
     transform: scale(1.05);
     transition: transform 0.3s ease;
@@ -79,6 +84,13 @@ a.bg-yellow-500:hover {
 
 a.bg-blue-700:hover {
     background-color: #1e40af;
+}
+
+/* Center alignment for buttons */
+.flex.justify-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Speaker Cards */
