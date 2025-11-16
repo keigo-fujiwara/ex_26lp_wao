@@ -1250,6 +1250,14 @@ body {
     color: var(--black);
 }
 
+.event-special-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 /* ============================================
    CTA Section
    ============================================ */
